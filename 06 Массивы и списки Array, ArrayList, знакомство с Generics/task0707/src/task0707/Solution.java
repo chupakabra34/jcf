@@ -20,5 +20,15 @@ Requirements:
 public class Solution {
     public static void main(String[] args) {
         //напишите тут ваш код
+        ArrayList<String> country = new ArrayList<>();
+        country.add("Me");
+        country.add("You");
+        country.add("Him");
+        country.add("Her");
+        country.add("together a friendly family");
+        System.out.printf("Количество элементов в ArrayList - %d\n", country.size());
+        for (String spisok : country) {
+            System.out.println(spisok);
+        }
     }
 }

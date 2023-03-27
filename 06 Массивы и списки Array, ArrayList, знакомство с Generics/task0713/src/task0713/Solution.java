@@ -3,6 +3,7 @@ package task0713;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 /* 
 Играем в Золушку
@@ -26,9 +27,41 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws Exception {
         //напишите тут ваш код
+        ArrayList<Integer> glav = new ArrayList<>();
+        ArrayList<Integer> devidedByThree = new ArrayList<>();
+        ArrayList<Integer> devidedByTwo = new ArrayList<>();
+        ArrayList<Integer> other = new ArrayList<>();
+
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        for (int x = 0; x < 20; x++) {
+//            System.out.printf("Введите %d-ое число: ", x + 1);
+//            int number = Integer.parseInt(reader.readLine());
+//            glav.add(number);
+//        }
+        Random random = new Random();
+        System.out.println("Случайные числа: ");
+        for (int z = 0; z < 20; z++) {
+            glav.add(z, random.nextInt(1, 10));
+            System.out.printf(" %d", glav.get(z));
+        }
+        System.out.println();
+        for (Integer integer : glav) {
+            if (((integer % 3) == 0) && ((integer % 2) == 0)) {
+                devidedByThree.add(integer);
+                devidedByTwo.add(integer);
+            } else if (integer % 3 == 0) {
+                devidedByThree.add(integer);
+            } else if (integer % 2 == 0) {
+                devidedByTwo.add(integer);
+            } else other.add(integer);
+        }
+        printList(devidedByThree);
+        printList(devidedByTwo);
+        printList(other);
     }
 
     public static void printList(ArrayList<Integer> list) {
         //напишите тут ваш код
+        System.out.println(list);
     }
 }

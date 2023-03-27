@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /* 
 Самые-самые
@@ -24,5 +25,29 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws IOException {
         //напишите тут ваш код
+        ArrayList<String> str = new ArrayList<>();
+        int min = 1000;
+        int max = 0;
+        BufferedReader string = new BufferedReader(new InputStreamReader(System.in));
+        for (int z = 0; z < 10; z++) {
+            System.out.printf("Введите %d-ю строку: ", z + 1);
+            str.add(String.valueOf(string.readLine()));
+        }
+        for (int z = 0; z < 10; z++) {
+            if (str.get(z).length() < min) {
+                min = str.get(z).length();
+            } else if (str.get(z).length() > max) {
+                max = str.get(z).length();
+            }
+        }
+        for (int z = 0; z < 10; z++) {
+            if (str.get(z).length() == min) {
+                System.out.println(str.get(z));
+                break;
+            } else if (str.get(z).length() == max) {
+                System.out.println(str.get(z));
+                break;
+            }
+        }
     }
 }

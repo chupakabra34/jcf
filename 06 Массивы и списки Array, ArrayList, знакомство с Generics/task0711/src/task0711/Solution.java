@@ -20,5 +20,20 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws Exception {
         //напишите тут ваш код
+        ArrayList<String> str = new ArrayList<>();
+        BufferedReader string = new BufferedReader(new InputStreamReader(System.in));
+        for (int z = 0; z < 5; z++) {
+            System.out.printf("Введите %d-ю строку: ", z + 1);
+            str.add(String.valueOf(string.readLine()));
+        }
+        for (int z = 0; z < 13; z++) {
+            String stroka = str.get(str.size() - 1);
+            str.remove(str.size() - 1);
+            str.add(0, stroka);
+            for (String spisok : str) {
+                System.out.println(spisok);
+            }
+            System.out.println();
+        }
     }
 }

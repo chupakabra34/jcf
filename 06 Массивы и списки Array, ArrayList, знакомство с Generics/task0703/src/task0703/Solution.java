@@ -21,5 +21,16 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws Exception {
         //напишите тут ваш код
+        int[] num = new int[10];
+        String[] array = new String[10];
+        BufferedReader str = new BufferedReader(new InputStreamReader(System.in));
+        for (int z = 0; z < 10; z++) {
+            System.out.printf("Введите %d-ю строку: ", z + 1);
+            array[z] = str.readLine();
+            num[z] = array[z].length();
+        }
+        for (int z = 0; z < 10; z++) {
+            System.out.printf("%d-ая строка имеет длину - %d\n", z + 1, num[z]);
+        }
     }
 }

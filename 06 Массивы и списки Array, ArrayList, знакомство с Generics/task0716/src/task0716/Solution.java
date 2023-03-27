@@ -1,6 +1,7 @@
 package task0716;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /* 
 Р или Л
@@ -44,7 +45,26 @@ public class Solution {
     }
 
     public static ArrayList<String> fix(ArrayList<String> strings) {
-        //напишите тут ваш код
-        return null;
+        int z = 0;
+        ArrayList<String> result = new ArrayList<String>();
+        while (z < strings.size()) {
+            if (strings.get(z).contains("р") && strings.get(z).contains("л")) {
+                String str = strings.get(z);
+                result.add(str);
+                z++;
+                continue;
+            } else if (strings.get(z).contains("р")) {
+                if (!result.isEmpty()) {
+                    result.remove(z);
+                    z--;
+                }
+            } else if (strings.get(z).contains("л")) {
+                String str = strings.get(z);
+                result.add(str);
+                result.add(str);
+            }
+            z++;
+        }
+        return result;
     }
 }

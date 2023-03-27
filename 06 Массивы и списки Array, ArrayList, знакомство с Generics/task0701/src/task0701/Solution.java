@@ -3,6 +3,8 @@ package task0701;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Random;
 
 /* 
 Массивный максимум
@@ -27,11 +29,21 @@ public class Solution {
 
     public static int[] initializeArray() throws IOException {
         // создай и заполни массив
-        return null;
+        Random random = new Random();
+        int[] array = new int[20];
+        System.out.println("Случайные числа: ");
+        for (int z = 0; z < 20; z++) {
+            array[z] = random.nextInt(1000);
+            System.out.printf(" %d", array[z]);
+        }
+        System.out.printf("\n");
+        return array;
     }
 
     public static int max(int[] array) {
         // найди максимальное значение
-        return 0;
+        Arrays.sort(array);
+        System.out.printf("Максимальное число в массиве - ");
+        return array[array.length - 1];
     }
 }
