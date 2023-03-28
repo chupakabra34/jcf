@@ -26,20 +26,26 @@ import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) {
-        ArrayList<String> family = new ArrayList<String>();
-//        family.add(String.valueOf(new Human("Аня",false,21)));
-//        family.add(String.valueOf(new Human("Петя",true,41,"Вася",null)));
-        System.out.println(family);
-
-        // напишите тут ваш код
-//        Human human = new Human("Аня",false,21);
-        // Два дедушки, две бабушки, отец, мать, трое детей. Вывести объекты на экран.
-//        System.out.println(new Human("Аня",false,21));
-//        System.out.println(new Human("Оля",false,18));
-//        System.out.println(new Human("Саша",true,10));
-//        System.out.println(new Human("Петя",true,41,"Вася",null).toString());
-//        Human human = new Human("Петя",true,41,"Вася",null);
-
+        ArrayList<Human> family = new ArrayList<>();
+        Human grandFather = new Human("Валера", true, 77);
+        Human grandMother = new Human("Фимка", false, 75);
+        Human grandFather2 = new Human("Дормидон", true, 87);
+        Human grandMother2 = new Human("Матрона", false, 85);
+        Human father = new Human("Кирилл", true, 47, grandFather, grandMother2);
+        Human mother = new Human("Екатерина", false, 45, grandFather2, grandMother);
+        Human child = new Human("Маша", false, 15, father, mother);
+        Human child2 = new Human("Петя", true, 11, father, mother);
+        Human child3 = new Human("Октябрина", false, 8, father, mother);
+        family.add(grandFather);
+        family.add(grandFather2);
+        family.add(grandMother);
+        family.add(grandMother2);
+        family.add(father);
+        family.add(mother);
+        family.add(child);
+        family.add(child2);
+        family.add(child3);
+        family.iterator().forEachRemaining(System.out::println);
     }
 
     public static class Human {
