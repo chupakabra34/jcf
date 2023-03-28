@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /* 
 Перестановочка подоспела
@@ -22,9 +23,36 @@ Requirements:
 4. Выведи список на экран, каждое значение с новой строки.*/
 
 public class Solution {
+    static int n;
+    static int m;
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> array = new ArrayList<String>();
+        boolean proverka = false;
 
         //напишите тут ваш код
+
+        while (!proverka) {
+            System.out.print("Введите 2 числа через пробел: ");
+            String[] number = reader.readLine().split(" ");
+            n = Integer.parseInt(number[0]);
+            m = Integer.parseInt(number[1]);
+            if (m < n) {
+                proverka = true;
+            } else System.out.println("Второе число, должно быть меньше первого!!!");
+        }
+        for (int z = 0; z < n; z++) {
+            System.out.printf("Введите %d-ю строку из %d: ", z + 1, n);
+            array.add(reader.readLine());
+        }
+        System.out.printf("Список перед обработкой: %s \n", array);
+        while (m != 0) {
+            String str = array.get(0);
+            array.remove(0);
+            array.add(str);
+            m--;
+        }
+        System.out.printf("Список после обработки: %s \n", array);
     }
 }

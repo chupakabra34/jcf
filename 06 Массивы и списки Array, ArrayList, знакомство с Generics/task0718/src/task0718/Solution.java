@@ -21,6 +21,17 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws IOException {
         //напишите тут ваш код
+        ArrayList<String> array = new ArrayList<String>();
+        BufferedReader str = new BufferedReader(new InputStreamReader(System.in));
+        for (int z = 0; z < 10; z++) {
+            System.out.printf("Введите %d-е слово: ", z + 1);
+            array.add(str.readLine());
+        }
+        for (int z = 0; z < array.size() - 1; z++) {
+            if (array.get(z).length() > array.get(z + 1).length()) {
+                System.out.printf("Индекс = %d, значение = %s", z, array.get(z));
+                break;
+            }
+        }
     }
 }
-
