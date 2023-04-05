@@ -27,12 +27,15 @@ public class Solution {
         }
     }
 
-
     public static Map<String, Cat> addCatsToMap(String[] cats) {
         //напишите тут ваш код
-
+        Map<String, Cat> catMap = new HashMap<>();
+        for (String catName : cats) {
+            Cat cat = new Cat(catName);
+            catMap.put(catName, cat);
+        }
+        return catMap;
     }
-
 
     public static class Cat {
         String name;

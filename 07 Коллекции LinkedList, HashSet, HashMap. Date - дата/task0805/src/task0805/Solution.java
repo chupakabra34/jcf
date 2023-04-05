@@ -33,5 +33,8 @@ public class Solution {
 
     public static void printValues(Map<String, String> map) {
         //напишите тут ваш код
+        for (Map.Entry<String, String> rezult : map.entrySet()) {
+            System.out.println(rezult.getKey() + " - " + rezult.getValue());
+        }
     }
 }
