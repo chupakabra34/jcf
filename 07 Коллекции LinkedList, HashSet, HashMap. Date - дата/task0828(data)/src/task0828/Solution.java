@@ -26,10 +26,10 @@ public class Solution {
         int mount = Integer.parseInt(reader.readLine());
         Map<Integer, String> mapMonths = new HashMap<Integer, String>();
         for (int z = 1; z < 13; z++) mapMonths.put(z, String.valueOf(Month.of(z)));
-        mapMonths.forEach((key, value) -> {
-            if (key.equals(mount)) {
-                System.out.printf("%S is the %d month", value, mount);
+        for (Map.Entry<Integer, String> pair : mapMonths.entrySet()) {
+            if (pair.getKey().equals(mount)) {
+                System.out.printf("%S is the %d month", pair.getValue(), mount);
             }
-        });
+        }
     }
 }
