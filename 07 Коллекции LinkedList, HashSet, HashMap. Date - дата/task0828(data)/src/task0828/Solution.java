@@ -3,8 +3,8 @@ package task0828;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Month;
+import java.util.*;
 
 /* 
 Номер месяца
@@ -21,5 +21,15 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws IOException {
         //напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите номер месяца: ");
+        int mount = Integer.parseInt(reader.readLine());
+        Map<Integer, String> mapMonths = new HashMap<Integer, String>();
+        for (int z = 1; z < 13; z++) mapMonths.put(z, String.valueOf(Month.of(z)));
+        mapMonths.forEach((key, value) -> {
+            if (key.equals(mount)) {
+                System.out.printf("%S is the %d month", value, mount);
+            }
+        });
     }
 }

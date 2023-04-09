@@ -25,6 +25,7 @@ public class Solution {
     }
 
     public static boolean isDateOdd(String date) {
-        return true;
+        int year = Integer.parseInt(date.substring(date.length() - 4));
+        return !((year & 3) == 0) && ((year % 100) != 0 || (year % 400) == 0);
     }
 }

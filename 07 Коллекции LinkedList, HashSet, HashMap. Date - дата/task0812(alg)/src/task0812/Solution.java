@@ -28,6 +28,25 @@ Requirements:
 public class Solution {
     public static void main(String[] args) throws IOException {
         //напишите тут ваш код
-
+        List<Integer> list = new ArrayList<>();
+        BufferedReader number = new BufferedReader(new InputStreamReader(System.in));
+        for (int z = 0; z < 10; z++) {
+            System.out.printf("Введите %d-е число: ", z + 1);
+            list.add(Integer.parseInt(number.readLine()));
+        }
+        System.out.println("Введёные числа: " + list);
+        int count = 1;
+        int sum = 1;
+        for (int z = 1; z < 10; z++) {
+            if (list.get(z).equals(list.get(z - 1))) {
+                count++;
+            } else {
+                count = 1;
+            }
+            if (count >= sum) {
+                sum = count;
+            }
+        }
+        System.out.println("Результат: " + sum);
     }
 }

@@ -1,6 +1,7 @@
 package task0808;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ Requirements:
 public class Solution {
     public static void main(String[] args) {
         // ArrayList
+        System.out.println("--- ArrayList---");
         ArrayList arrayList = new ArrayList();
         insert10000(arrayList);
         get10000(arrayList);
@@ -27,6 +29,7 @@ public class Solution {
         remove10000(arrayList);
 
         // LinkedList
+        System.out.println("--- LinkedList---");
         LinkedList linkedList = new LinkedList();
         insert10000(linkedList);
         get10000(linkedList);
@@ -36,21 +39,38 @@ public class Solution {
 
     public static void insert10000(List list) {
         //напишите тут ваш код
-
+        Date timeBefore = new Date();
+        for (int x = 0; x < 10000; x++) list.add(x, x);
+        Date timeAfter = new Date();
+        long msDelay = timeAfter.getTime() - timeBefore.getTime();
+        System.out.printf("Вставка %d элементов составляет: %d мс \n", list.size(), msDelay);
     }
 
     public static void get10000(List list) {
         //напишите тут ваш код
-
+        Date timeBefore = new Date();
+        for (int x = 0; x < 10000; x++) list.get(x);
+        Date timeAfter = new Date();
+        long msDelay = timeAfter.getTime() - timeBefore.getTime();
+        System.out.printf("Вызов %d раз GET у списка: %d мс \n", list.size(), msDelay);
     }
 
     public static void set10000(List list) {
         //напишите тут ваш код
-
+        Date timeBefore = new Date();
+        for (int x = 0; x < 10000; x++) list.set(x, x);
+        Date timeAfter = new Date();
+        long msDelay = timeAfter.getTime() - timeBefore.getTime();
+        System.out.printf("Вызов %d раз SET у списка: %d мс \n", list.size(), msDelay);
     }
 
     public static void remove10000(List list) {
         //напишите тут ваш код
-
+        Date timeBefore = new Date();
+        int z = list.size();
+        for (int x = list.size() - 1; x >= 0; x--) list.remove(x);
+        Date timeAfter = new Date();
+        long msDelay = timeAfter.getTime() - timeBefore.getTime();
+        System.out.printf("Удаление %d элементов составляет: %d мс \n", z, msDelay);
     }
 }

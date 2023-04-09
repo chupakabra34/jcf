@@ -19,12 +19,35 @@ Requirements:
 public class Solution {
     public static Map<String, String> createMap() {
         //напишите тут ваш код
-
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("Маркина", "Арина");
+        map.put("Маркин", "Никита");
+        map.put("Степанов", "Пётр");
+        map.put("Ульянов", "Богдан");
+        map.put("Лаптева", "Варвара");
+        map.put("Егоров", "Никита");
+        map.put("Новиков", "Фёдор");
+        map.put("Петрова", "Елизавета");
+        map.put("Леонов", "Никита");
+        map.put("Воробьев", "Дмитрий");
+        return map;
     }
 
     public static void removeTheFirstNameDuplicates(Map<String, String> map) {
         //напишите тут ваш код
-
+        HashMap<String, String> name = new HashMap<String, String>(map);
+        for(Map.Entry pair : name.entrySet()){
+            int count = 0;
+            String a = (String) pair.getValue();
+            for (Map.Entry pair2 : name.entrySet()) {
+                if (pair2.getValue().equals(a))
+                    count++;
+            }
+            if(count > 1){
+                for(int i = 0; i < count; i++)
+                    removeItemFromMapByValue(map, String.valueOf(a));
+            }
+        }
     }
 
     public static void removeItemFromMapByValue(Map<String, String> map, String value) {
@@ -34,9 +57,15 @@ public class Solution {
                 map.remove(pair.getKey());
             }
         }
+/* Для теста
+        System.out.println(map);
+ */
     }
 
     public static void main(String[] args) {
-
+        // Для теста
+        // System.out.println(createMap());
+        // removeItemFromMapByValue(createMap(),"Никита");
+        //
     }
 }
